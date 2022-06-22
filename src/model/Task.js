@@ -1,15 +1,17 @@
-import mongoose, { model } from "mongoose";
+import mongoose  from "mongoose";
 const TaskSchema = new mongoose.Schema({
-    name: String, 
-    state: {
+    title: String, 
+    content:String, 
+    deadline: Number,
+    status: {
         type: Number,
-        enum: [0,1]
+        enum: [0,1,2]
     }
 },
 {
     timestamps: true
 })
 
-const User = mongoose.model("user",UserSchema);
+const Task = mongoose.model("task",TaskSchema,"task");
 
-module.exports = User;
+module.exports = Task;
